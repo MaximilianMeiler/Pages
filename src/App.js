@@ -3,7 +3,8 @@ import {useEffect, useState} from 'react';
 
 function App() {
   const [stack, setStack] = useState([0])
-  const colors = [150, 20, 190, 320, 45]
+  const [hover, setHover] = useState(-1)
+  const colors = [-1, 190, 150, 45, 20]
 
   async function popStack(delay) {
     const curr = document.querySelector(".left");
@@ -46,10 +47,10 @@ function App() {
 
         <div className='top' style={stack.length > 1 ? {backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 45%)`} : {}}></div>
         <div className='right' style={stack.length > 1 ? {backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 40%)`} : {}}>
-          <div onClick={() => setStack([0, 1])}>Activity</div>
-          <div onClick={() => setStack([0, 2])}>Projects</div>
-          <div onClick={() => setStack([0, 3])}>Skills</div>
-          <div onClick={() => setStack([0, 4])}>Contact</div>
+          <div onClick={() => setStack([0, 1])} onMouseEnter={() => setHover(1)} onMouseOut={() => setHover(-1)} style={hover === 1 ? {WebkitTextFillColor:`hsl(${colors[1]}, 100%, 50%)`} : {}}>Activity</div>
+          <div onClick={() => setStack([0, 2])} onMouseEnter={() => setHover(2)} onMouseOut={() => setHover(-1)} style={hover === 2 ? {WebkitTextFillColor:`hsl(${colors[2]}, 100%, 50%)`} : {}}>Projects</div>
+          <div onClick={() => setStack([0, 3])} onMouseEnter={() => setHover(3)} onMouseOut={() => setHover(-1)} style={hover === 3 ? {WebkitTextFillColor:`hsl(${colors[3]}, 100%, 50%)`} : {}}>Skills</div>
+          <div onClick={() => setStack([0, 4])} onMouseEnter={() => setHover(4)} onMouseOut={() => setHover(-1)} style={hover === 4 ? {WebkitTextFillColor:`hsl(${colors[4]}, 100%, 50%)`} : {}}>Contact</div>
           <button onClick={() => popStack(250)}>pop!</button>
         </div>
       </div>

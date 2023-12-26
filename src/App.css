@@ -28,6 +28,7 @@ body {
   width: calc(100vw - 304px);
   background-color: rgb(255, 255, 255);
   z-index: 1;
+  transition: background-color .25s;
 }
 
 .left {
@@ -47,6 +48,7 @@ body {
   right: 150px;
   width: calc(100vw - 300px);
   background-color: rgb(235, 235, 235);
+  transition: background-color .25s;
 }
 
 .right {
@@ -56,13 +58,20 @@ body {
   height: calc(100vh - 79px);
   background-color: rgb(215, 215, 215);
   transform: skewY(calc(-1 * atan(1/4)));
+  transition: background-color .25s;
 }
 
 .right > div {
-  font-size: 75px;
+  font-size: 55px;
   padding-top: 2vh;
   padding-bottom: 2vh;
   padding-left: 4px;
   -webkit-text-fill-color: transparent;
+  transition: -webkit-text-fill-color .15s;
+  transition: font-size .15s;
   -webkit-text-stroke: 4px;
+}
+
+.right > div:hover {
+  font-size: 75px;
 }

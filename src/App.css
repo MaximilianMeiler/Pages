@@ -26,7 +26,7 @@ body {
   bottom: 0;
   height: calc(100vh - 79px);
   width: calc(100vw - 304px);
-  background-color: hsl(150, 100%, 50%) ;
+  background-color: rgb(255, 255, 255);
   z-index: 1;
 }
 
@@ -46,7 +46,7 @@ body {
   height: 75px;
   right: 150px;
   width: calc(100vw - 300px);
-  background: linear-gradient(0deg, hsl(150, 100%, 45%), hsl(150, 100%, 45%));
+  background-color: rgb(235, 235, 235);
 }
 
 .right {
@@ -54,7 +54,7 @@ body {
   width: 300px;
   top: calc(75px/2 - 0px);
   height: calc(100vh - 79px);
-  background: linear-gradient(105deg, hsl(150, 100%, 40%), hsl(150, 100%, 40%));
+  background-color: rgb(215, 215, 215);
   transform: skewY(calc(-1 * atan(1/4)));
 }
 

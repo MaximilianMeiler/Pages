@@ -67,11 +67,13 @@ body {
   padding-bottom: 2vh;
   padding-left: 4px;
   -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 3px;
   transition: -webkit-text-fill-color .15s;
+  transition: -webkit-text-stroke .15s;
   transition: font-size .15s;
-  -webkit-text-stroke: 4px;
 }
 
 .right > div:hover {
   font-size: 75px;
+  -webkit-text-stroke: 4px;
 }

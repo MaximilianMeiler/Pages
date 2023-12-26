@@ -1,38 +1,57 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Tilt Warp', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.trueBackground {
+  background-color: black;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.background > div {
+  position: absolute;
+  border: 2px black solid;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.left {
+  left: 0;
+  bottom: 0;
+  height: calc(100vh - 75px);
+  width: calc(100vw - 300px);
+  background-color: hsl(150, 100%, 50%) ;
 }
 
-.App-link {
-  color: #61dafb;
+.top {
+  transform: skewX(calc(-1 * atan(4)));
+  top: 0;
+  height: 75px;
+  right: 150px;
+  width: 100vw;
+  background: linear-gradient(-90deg, hsl(150, 100%, 45%), hsl(150, 100%, 45%));
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.right {
+  right: 0;
+  width: 300px;
+  top: calc(75px/2 - 0px);
+  height: calc(100vh - 0px);
+  background: linear-gradient(135deg, hsl(150, 100%, 45%), hsl(150, 100%, 35%));
+  transform: skewY(calc(-1 * atan(1/4)));
+}
+
+.right > div {
+  font-size: 75px;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  padding-left: 4px;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 4px;
 }

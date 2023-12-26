@@ -25,6 +25,8 @@ function App() {
       <div className='trueBackground'></div>
       <div className='background'>
         <div className='left' style={stack.length > 1 ? {backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 85%)`} : {}}>
+          <div className='nestedTag' style={stack.length > 1 ? {left:`${100 + 100*(stack.length-1)}px`, backgroundColor:`hsl(${colors[stack[1]]}, 100%, 85%)`} : {left:`${100 + 100*(stack.length-1)}px`}}></div>
+
           {stack[stack.length-1] === 0 ? 
             <div>This is the about page</div>
           : stack[stack.length-1] === 1 ? 
@@ -33,6 +35,13 @@ function App() {
           }
 
         </div>
+
+        {stack.map((v, i) => { //non-last tags
+          return (
+            i !== stack.length - 1 ? 
+              <div className='tag' style={i === 0 ? {} : {left:`${102 + 100*i}px`, backgroundColor:`hsl(${colors[stack[1]]}, 100%, 85%)`}}></div>
+            : <></>
+        )})}
 
         {stack.length > 1 ? 
         <div className='leftBehind' style={stack.length > 2 ? {backgroundColor:`hsl(${colors[stack[stack.length-2]]}, 100%, 85%)`} : {}}>

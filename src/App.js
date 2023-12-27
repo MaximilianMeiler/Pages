@@ -9,23 +9,37 @@ function App() {
 
   async function popStack(delay) {
     const curr = document.querySelector(".left");
-    curr.classList.add("hidden");
     curr.style.setProperty("transition", `transform ${delay / 1000}s ease-in-out`);
+    curr.classList.add("hidden");
 
     setTimeout(() => {
       setStack(stack.slice(0, stack.length-1));
-      curr.classList.remove("hidden");
-      curr.style.setProperty("transition", `0s ease-in-out`);
     }, delay)
+  }
+
+  async function popDown(page) {
+    await setTarget(0);
+    const curr = document.querySelector(".left");
+    // curr.style.setProperty("transition", `transform ${delay / 1000}s ease-in-out`);
+
+    setTimeout(() => {
+      setTarget(1);
+      setStack([0, page])
+    }, 500)
   }
 
   useEffect(() => {
     console.log("stack update: ", stack)
+    const curr = document.querySelector(".left");
+    curr.style.setProperty("transition", `0s ease-in-out`);
+    curr.classList.remove("hidden");
 
     if (stack.length > target + 1) {
-      const time = 250 / (stack.length - target - 1);
-      popStack(time);
-    }
+      setTimeout(() => {
+        const time = 250 / (stack.length - target - 1);
+        popStack(time);
+      }, 0) //this somehow solves a problem
+    }  
   }, [stack, target])
 
   return (
@@ -67,7 +81,7 @@ function App() {
 
         <div className='top' style={stack.length > 1 ? {backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 80%)`} : {}}></div>
         <div className='right' style={stack.length > 1 ? {backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 75%)`} : {}}>
-          <div onClick={() => setStack([0, 1])} onMouseEnter={() => setHover(1)} onMouseOut={() => setHover(-1)} style={hover === 1 ? {WebkitTextFillColor:`hsl(${colors[1]}, 100%, 50%)`} : {}}>Activity</div>
+          <div onClick={() => popDown(1)} onMouseEnter={() => setHover(1)} onMouseOut={() => setHover(-1)} style={hover === 1 ? {WebkitTextFillColor:`hsl(${colors[1]}, 100%, 50%)`} : {}}>Activity</div>
           <div onClick={() => setStack([0, 2])} onMouseEnter={() => setHover(2)} onMouseOut={() => setHover(-1)} style={hover === 2 ? {WebkitTextFillColor:`hsl(${colors[2]}, 100%, 50%)`} : {}}>Projects</div>
           <div onClick={() => setStack([0, 3])} onMouseEnter={() => setHover(3)} onMouseOut={() => setHover(-1)} style={hover === 3 ? {WebkitTextFillColor:`hsl(${colors[3]}, 100%, 50%)`} : {}}>Skills</div>
           <div onClick={() => setStack([0, 4])} onMouseEnter={() => setHover(4)} onMouseOut={() => setHover(-1)} style={hover === 4 ? {WebkitTextFillColor:`hsl(${colors[4]}, 100%, 50%)`} : {}}>Contact</div>

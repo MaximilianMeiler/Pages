@@ -37,18 +37,20 @@ body {
 .tag, .nestedTag {
   position:absolute;
   left: 102px;
-  top: 12px;
+  top: 10px;
   height: 65px;
-  width: 60px;
+  width: 95px;
   z-index: 3;
   background-color: rgb(255, 255, 255);
+  border: 2px black solid;
   border-radius: 10px;
+  border-bottom: none;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
 
 .nestedTag {
-  top: -65px;
+  top: -67px;
 }
 
 .hidden {

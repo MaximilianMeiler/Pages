@@ -2,22 +2,33 @@ import './App.css';
 import {useEffect, useState} from 'react';
 
 function App() {
-  const [stack, setStack] = useState([0])
+  const [stack, setStack] = useState([0, 1, 2, 3])
   const [hover, setHover] = useState(-1)
   const colors = [-1, 190, 150, 45, 20]
 
-  async function popStack(delay) {
+  async function popStack(delay, size) {
+    console.log(size)
     const curr = document.querySelector(".left");
     curr.classList.add("hidden");
 
     setTimeout(() => {
-      setStack(stack.slice(0, stack.length-1))
+      setStack(stack.slice(0, size-1));
       curr.classList.remove("hidden");
     }, delay)
   }
 
+  async function popDown(index) {
+    var time = 250 ;
+    console.log(time)
+    var s = stack.length;
+    while (s > index + 1) {
+      await popStack(time, s);
+      s--;
+    }
+  }
+
   useEffect(() => {
-    console.log(stack)
+    console.log("stack update: ", stack)
   }, [stack])
 
   return (
@@ -25,7 +36,7 @@ function App() {
       <div className='trueBackground'></div>
       <div className='background'>
         <div className='left' style={stack.length > 1 ? {backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 85%)`} : {}}>
-          <div className='nestedTag' style={stack.length > 1 ? {left:`${100 + 100*(stack.length-1)}px`, backgroundColor:`hsl(${colors[stack[1]]}, 100%, 85%)`} : {left:`${100 + 100*(stack.length-1)}px`}}></div>
+          <div className='nestedTag' style={stack.length > 1 ? {left:`${100 + 140*(stack.length-1)}px`, backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 85%)`} : {left:`${100 + 100*(stack.length-1)}px`}}></div>
 
           {stack[stack.length-1] === 0 ? 
             <div>This is the about page</div>
@@ -39,7 +50,10 @@ function App() {
         {stack.map((v, i) => { //non-last tags
           return (
             i !== stack.length - 1 ? 
-              <div className='tag' style={i === 0 ? {} : {left:`${102 + 100*i}px`, backgroundColor:`hsl(${colors[stack[1]]}, 100%, 85%)`}}></div>
+              <div className='tag' 
+                style={i === 0 ? {} : {left:`${102 + 140*i}px`, backgroundColor:`hsl(${colors[stack[i]]}, 100%, 85%)`}}
+                onClick={() => popDown(i)}
+              ></div>
             : <></>
         )})}
 
@@ -60,7 +74,7 @@ function App() {
           <div onClick={() => setStack([0, 2])} onMouseEnter={() => setHover(2)} onMouseOut={() => setHover(-1)} style={hover === 2 ? {WebkitTextFillColor:`hsl(${colors[2]}, 100%, 50%)`} : {}}>Projects</div>
           <div onClick={() => setStack([0, 3])} onMouseEnter={() => setHover(3)} onMouseOut={() => setHover(-1)} style={hover === 3 ? {WebkitTextFillColor:`hsl(${colors[3]}, 100%, 50%)`} : {}}>Skills</div>
           <div onClick={() => setStack([0, 4])} onMouseEnter={() => setHover(4)} onMouseOut={() => setHover(-1)} style={hover === 4 ? {WebkitTextFillColor:`hsl(${colors[4]}, 100%, 50%)`} : {}}>Contact</div>
-          <button onClick={() => popStack(250)}>pop!</button>
+          <button onClick={() => popStack(250, stack.length)}>pop!</button>
         </div>
       </div>
     </div>

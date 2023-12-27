@@ -55,7 +55,7 @@ body {
 
 .hidden {
   transform: translateY(110%);
-  transition: transform .25s ease-in-out ;
+  /* transition: transform .25s ease-in-out ; */
 }
 
 .top {

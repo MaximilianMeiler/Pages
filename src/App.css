@@ -7,6 +7,11 @@ body {
   font-family: 'Tilt Warp', sans-serif;
 }
 
+.background {
+  overflow: hidden;
+  border: 60px black solid;
+}
+
 .trueBackground {
   background-color: black;
   position: absolute;
@@ -55,7 +60,7 @@ body {
 }
 
 .hidden {
-  transform: translateY(110%);
+  transform: translateY(calc(100% + 70px));
 }
 
 .top {
@@ -66,7 +71,7 @@ body {
   top: 0;
   height: 75px;
   right: 150px;
-  width: calc(100vw - 300px);
+  left: 150px;
   background-color: rgb(235, 235, 235);
   transition: background-color .25s;
 }
@@ -78,7 +83,7 @@ body {
   right: 0;
   width: 300px;
   top: calc(75px/2 - 0px);
-  height: calc(100vh - 79px);
+  bottom: calc(75px/2 - 0px);
   background-color: rgb(215, 215, 215);
   transform: skewY(calc(-1 * atan(1/4)));
   transition: background-color .25s;

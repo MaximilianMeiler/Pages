@@ -1,0 +1,129 @@
+.window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.projectHeader {
+  margin-bottom: 5%;
+}
+
+.projectRows {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.projectRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+}
+
+.projectContainer {
+  overflow: hidden;
+
+  position: relative;
+  height: 70%;
+  width: 25%;
+
+}
+
+.project {
+  position: absolute;
+  background-color: hsl(150, 100%, 85%);
+  border: 1px black solid;
+  z-index: 10;
+
+  top: 0px;
+  margin-top: 0px;
+  right: 0px;
+  margin-right: 0px;
+  bottom: 0;
+  margin-bottom: 20px;
+  left: 0;
+  margin-left: 80px;
+  transition: margin .15s;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.project:before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: calc(100% + 1px);
+  bottom: 0px;
+  background-color: hsl(150, 100%, 85%);
+  z-index: -1;
+}
+
+.project:after {
+  content: '';
+  position: absolute;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  top: calc(100% + 1px);
+  background-color: hsl(150, 100%, 85%);  
+  z-index: -1;
+}
+
+
+.showProj {
+  margin-top: 20px;
+  margin-right: 81px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+}
+
+.pTop {
+  background-color: hsl(150, 100%, 80%);
+  position: absolute;
+  border: 1px black solid;
+  border-left: 4px black solid;
+
+  transform: skewX(calc(-1 * atan(4)));
+  top: 0;
+  transition: height .15s, margin .15s;
+  height: 0px;
+  right: 0px;
+  margin-right: 0px;
+  margin-left: 40px;
+  left: 35px;
+}
+
+.showTop {
+  height: 20px;
+  margin-right: 40px;
+  margin-left: 0px;
+}
+
+.pRight {
+  background-color: hsl(150, 100%, 75%);
+  position: absolute;
+  border: 1px black solid;  
+
+  transform: skewY(calc(-1 * atan(1/4)));
+  transition: width .15s, margin .15s;
+  width: 0px;
+  right: 0;
+  top: 0px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  bottom: 10px;
+}
+
+.showRight {
+  width: 80px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}

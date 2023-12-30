@@ -1,10 +1,25 @@
 import './App.css';
+import './Projects.css';
 import {useEffect, useState} from 'react';
+
+/*
+
+LEGEND:
+  0 - Directory
+  1 - Activity
+  2 - Projects
+  3 - Skills
+  4 - Contact
+
+
+
+*/
 
 function App() {
   const [stack, setStack] = useState([0, 1, 2, 3])
   const [hover, setHover] = useState(-1)
   const [target, setTarget] = useState(3)
+  const [adding, setAdding] = useState(false)
   const colors = [-1, 190, 150, 45, 20]
 
   async function popStack(delay) {
@@ -18,11 +33,10 @@ function App() {
   }
 
   async function popDown(page) {
-    await setTarget(0);
-    const curr = document.querySelector(".left");
-    // curr.style.setProperty("transition", `transform ${delay / 1000}s ease-in-out`);
+    await setTarget(0); //pop down to home page
 
     setTimeout(() => {
+      setAdding(true);
       setTarget(1);
       setStack([0, page])
     }, 500)
@@ -31,7 +45,12 @@ function App() {
   useEffect(() => {
     console.log("stack update: ", stack)
     const curr = document.querySelector(".left");
-    curr.style.setProperty("transition", `0s ease-in-out`);
+    if (!adding) {
+      curr.style.setProperty("transition", `0s ease-in-out`);
+    } else {
+      curr.style.setProperty("transition", `.25s ease-in-out`);
+      setAdding(false);
+    }
     curr.classList.remove("hidden");
 
     if (stack.length > target + 1) {
@@ -39,7 +58,8 @@ function App() {
         const time = 250 / (stack.length - target - 1);
         popStack(time);
       }, 0) //this somehow solves a problem
-    }  
+    }
+
   }, [stack, target])
 
   return (
@@ -53,6 +73,169 @@ function App() {
             <div>This is the about page</div>
           : stack[stack.length-1] === 1 ? 
             <div>This is the activity page</div> 
+          : stack[stack.length-1] === 2 ? 
+            <div className='window'>
+              <div className='projectHeader'>Projects</div>
+              <div className='projectRows'>
+
+                <div className="projectRow">
+                  <div className='projectContainer' onMouseEnter={() => {
+                      var top = document.querySelector("#t1");
+                      var right = document.querySelector("#r1");
+                      var proj = document.querySelector("#p1");
+
+                      top.classList.add("showTop");
+                      right.classList.add("showRight");
+                      proj.classList.add("showProj");
+                    }} onMouseLeave={() => {
+                      var top = document.querySelector("#t1");
+                      var right = document.querySelector("#r1");
+                      var proj = document.querySelector("#p1");
+
+                      top.classList.remove("showTop");
+                      right.classList.remove("showRight");
+                      proj.classList.remove("showProj");
+                  }}>
+                    <div className="project" id="p1">
+                      <div className='image'></div>
+                      <div>Phase</div>
+                    </div>
+                    <div className="pTop" id='t1'></div>
+                    <div className="pRight" id="r1"></div>
+                  </div>
+
+                  <div className='projectContainer' onMouseEnter={() => {
+                      var top = document.querySelector("#t2");
+                      var right = document.querySelector("#r2");
+                      var proj = document.querySelector("#p2");
+
+                      top.classList.add("showTop");
+                      right.classList.add("showRight");
+                      proj.classList.add("showProj");
+                    }} onMouseLeave={() => {
+                      var top = document.querySelector("#t2");
+                      var right = document.querySelector("#r2");
+                      var proj = document.querySelector("#p2");
+
+                      top.classList.remove("showTop");
+                      right.classList.remove("showRight");
+                      proj.classList.remove("showProj");
+                  }}>
+                    <div className="project" id="p2">
+                      <div className='image'></div>
+                      <div>Phase</div>
+                    </div>
+                    <div className="pTop" id='t2'></div>
+                    <div className="pRight" id="r2"></div>
+                  </div>
+
+                  <div className='projectContainer' onMouseEnter={() => {
+                      var top = document.querySelector("#t3");
+                      var right = document.querySelector("#r3");
+                      var proj = document.querySelector("#p3");
+
+                      top.classList.add("showTop");
+                      right.classList.add("showRight");
+                      proj.classList.add("showProj");
+                    }} onMouseLeave={() => {
+                      var top = document.querySelector("#t3");
+                      var right = document.querySelector("#r3");
+                      var proj = document.querySelector("#p3");
+
+                      top.classList.remove("showTop");
+                      right.classList.remove("showRight");
+                      proj.classList.remove("showProj");
+                  }}>
+                    <div className="project" id="p3">
+                      <div className='image'></div>
+                      <div>Phase</div>
+                    </div>
+                    <div className="pTop" id='t3'></div>
+                    <div className="pRight" id="r3"></div>
+                  </div>
+                </div>
+
+                <div className="projectRow">
+                  <div className='projectContainer' onMouseEnter={() => {
+                        var top = document.querySelector("#t4");
+                        var right = document.querySelector("#r4");
+                        var proj = document.querySelector("#p4");
+
+                        top.classList.add("showTop");
+                        right.classList.add("showRight");
+                        proj.classList.add("showProj");
+                      }} onMouseLeave={() => {
+                        var top = document.querySelector("#t4");
+                        var right = document.querySelector("#r4");
+                        var proj = document.querySelector("#p4");
+
+                        top.classList.remove("showTop");
+                        right.classList.remove("showRight");
+                        proj.classList.remove("showProj");
+                    }}>
+                      <div className="project" id="p4">
+                        <div className='image'></div>
+                        <div>Phase</div>
+                      </div>
+                      <div className="pTop" id='t4'></div>
+                      <div className="pRight" id="r4"></div>
+                    </div>
+                    <div className='projectContainer' onMouseEnter={() => {
+                        var top = document.querySelector("#t5");
+                        var right = document.querySelector("#r5");
+                        var proj = document.querySelector("#p5");
+
+                        top.classList.add("showTop");
+                        right.classList.add("showRight");
+                        proj.classList.add("showProj");
+                      }} onMouseLeave={() => {
+                        var top = document.querySelector("#t5");
+                        var right = document.querySelector("#r5");
+                        var proj = document.querySelector("#p5");
+
+                        top.classList.remove("showTop");
+                        right.classList.remove("showRight");
+                        proj.classList.remove("showProj");
+                    }}>
+                      <div className="project" id="p5">
+                        <div className='image'></div>
+                        <div>Phase</div>
+                      </div>
+                      <div className="pTop" id='t5'></div>
+                      <div className="pRight" id="r5"></div>
+                    </div>
+                    <div className='projectContainer' onMouseEnter={() => {
+                        var top = document.querySelector("#t6");
+                        var right = document.querySelector("#r6");
+                        var proj = document.querySelector("#p6");
+
+                        top.classList.add("showTop");
+                        right.classList.add("showRight");
+                        proj.classList.add("showProj");
+                      }} onMouseLeave={() => {
+                        var top = document.querySelector("#t6");
+                        var right = document.querySelector("#r6");
+                        var proj = document.querySelector("#p6");
+
+                        top.classList.remove("showTop");
+                        right.classList.remove("showRight");
+                        proj.classList.remove("showProj");
+                    }}>
+                      <div className="project" id="p6">
+                        <div className='image'></div>
+                        <div>Phase</div>
+                      </div>
+                      <div className="pTop" id='t6'></div>
+                      <div className="pRight" id="r6"></div>
+                    </div>
+                </div>
+              </div>
+
+            </div>
+          : stack[stack.length-1] === 3 ? 
+            <div>This is the skills page</div>
+          : stack[stack.length-1] === 4 ? 
+            <div>This is the contact page</div>
           : <div>Error 404</div>
           }
 
@@ -70,6 +253,7 @@ function App() {
 
         {stack.length > 1 ? 
         <div className='leftBehind' style={stack.length > 2 ? {backgroundColor:`hsl(${colors[stack[stack.length-2]]}, 100%, 85%)`} : {}}>
+
           {stack[stack.length-2] === 0 ? 
             <div>This is the about page</div>
           : stack[stack.length-2] === 1 ? 
@@ -82,9 +266,9 @@ function App() {
         <div className='top' style={stack.length > 1 ? {backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 80%)`} : {}}></div>
         <div className='right' style={stack.length > 1 ? {backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 75%)`} : {}}>
           <div onClick={() => popDown(1)} onMouseEnter={() => setHover(1)} onMouseOut={() => setHover(-1)} style={hover === 1 ? {WebkitTextFillColor:`hsl(${colors[1]}, 100%, 50%)`} : {}}>Activity</div>
-          <div onClick={() => setStack([0, 2])} onMouseEnter={() => setHover(2)} onMouseOut={() => setHover(-1)} style={hover === 2 ? {WebkitTextFillColor:`hsl(${colors[2]}, 100%, 50%)`} : {}}>Projects</div>
-          <div onClick={() => setStack([0, 3])} onMouseEnter={() => setHover(3)} onMouseOut={() => setHover(-1)} style={hover === 3 ? {WebkitTextFillColor:`hsl(${colors[3]}, 100%, 50%)`} : {}}>Skills</div>
-          <div onClick={() => setStack([0, 4])} onMouseEnter={() => setHover(4)} onMouseOut={() => setHover(-1)} style={hover === 4 ? {WebkitTextFillColor:`hsl(${colors[4]}, 100%, 50%)`} : {}}>Contact</div>
+          <div onClick={() => popDown(2)} onMouseEnter={() => setHover(2)} onMouseOut={() => setHover(-1)} style={hover === 2 ? {WebkitTextFillColor:`hsl(${colors[2]}, 100%, 50%)`} : {}}>Projects</div>
+          <div onClick={() => popDown(3)} onMouseEnter={() => setHover(3)} onMouseOut={() => setHover(-1)} style={hover === 3 ? {WebkitTextFillColor:`hsl(${colors[3]}, 100%, 50%)`} : {}}>Skills</div>
+          <div onClick={() => popDown(4)} onMouseEnter={() => setHover(4)} onMouseOut={() => setHover(-1)} style={hover === 4 ? {WebkitTextFillColor:`hsl(${colors[4]}, 100%, 50%)`} : {}}>Contact</div>
           <button onClick={() => popStack(250)}>pop!</button>
         </div>
       </div>

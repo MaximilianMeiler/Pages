@@ -7,7 +7,11 @@
 }
 
 .projectHeader {
-  margin-bottom: 5%;
+  margin: 2% 0px;
+  font-size: 50px;
+  /* text-decoration: underline; */
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 3px; 
 }
 
 .projectRows {
@@ -27,6 +31,7 @@
 
 .projectContainer {
   overflow: hidden;
+  cursor: pointer;
 
   position: relative;
   height: 70%;
@@ -53,6 +58,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
 }
 
 .project:before {
@@ -126,4 +132,16 @@
   width: 40px;
   margin-top: 5px;
   margin-bottom: 0px;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  margin: 4% 4%;
+}
+
+.projTitle {
+  margin-bottom: 4%;
+  font-size: 20px;
 }

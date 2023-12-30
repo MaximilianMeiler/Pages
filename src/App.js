@@ -97,8 +97,8 @@ function App() {
                       proj.classList.remove("showProj");
                   }}>
                     <div className="project" id="p1">
-                      <div className='image'></div>
-                      <div>Phase</div>
+                      <img className='image' src={'./Images/cat-spaghetti.jpg'} alt='bruh'></img>
+                      <div className='projTitle'>Phase</div>
                     </div>
                     <div className="pTop" id='t1'></div>
                     <div className="pRight" id="r1"></div>
@@ -123,7 +123,7 @@ function App() {
                   }}>
                     <div className="project" id="p2">
                       <div className='image'></div>
-                      <div>Phase</div>
+                      <div>Optimal Odyssey</div>
                     </div>
                     <div className="pTop" id='t2'></div>
                     <div className="pRight" id="r2"></div>
@@ -148,7 +148,7 @@ function App() {
                   }}>
                     <div className="project" id="p3">
                       <div className='image'></div>
-                      <div>Phase</div>
+                      <div>Clubfinity</div>
                     </div>
                     <div className="pTop" id='t3'></div>
                     <div className="pRight" id="r3"></div>
@@ -175,7 +175,7 @@ function App() {
                     }}>
                       <div className="project" id="p4">
                         <div className='image'></div>
-                        <div>Phase</div>
+                        <div>gpTA</div>
                       </div>
                       <div className="pTop" id='t4'></div>
                       <div className="pRight" id="r4"></div>
@@ -199,7 +199,7 @@ function App() {
                     }}>
                       <div className="project" id="p5">
                         <div className='image'></div>
-                        <div>Phase</div>
+                        <div>Climbr</div>
                       </div>
                       <div className="pTop" id='t5'></div>
                       <div className="pRight" id="r5"></div>
@@ -223,7 +223,7 @@ function App() {
                     }}>
                       <div className="project" id="p6">
                         <div className='image'></div>
-                        <div>Phase</div>
+                        <div>This website!</div>
                       </div>
                       <div className="pTop" id='t6'></div>
                       <div className="pRight" id="r6"></div>

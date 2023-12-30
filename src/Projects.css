@@ -42,7 +42,7 @@
 .project {
   position: absolute;
   background-color: hsl(150, 100%, 85%);
-  border: 1px black solid;
+  border: 2px black solid;
   z-index: 10;
 
   top: 0px;
@@ -65,8 +65,8 @@
   content: '';
   position: absolute;
   top: -10px;
-  left: -10px;
-  right: calc(100% + 1px);
+  left: -20px;
+  right: calc(100% + 2px);
   bottom: 0px;
   background-color: hsl(150, 100%, 85%);
   z-index: -1;
@@ -77,8 +77,8 @@
   position: absolute;
   left: -5px;
   right: -5px;
-  bottom: -5px;
-  top: calc(100% + 1px);
+  bottom: -10px;
+  top: calc(100% + 2px);
   background-color: hsl(150, 100%, 85%);  
   z-index: -1;
 }
@@ -94,8 +94,8 @@
 .pTop {
   background-color: hsl(150, 100%, 80%);
   position: absolute;
-  border: 1px black solid;
-  border-left: 4px black solid;
+  border: 2px black solid;
+  border-left: 8px black solid;
 
   transform: skewX(calc(-1 * atan(4)));
   top: 0;
@@ -104,7 +104,7 @@
   right: 0px;
   margin-right: 0px;
   margin-left: 20px;
-  left: 15px;
+  left: 10px;
 }
 
 .showTop {
@@ -116,7 +116,7 @@
 .pRight {
   background-color: hsl(150, 100%, 75%);
   position: absolute;
-  border: 1px black solid;  
+  border: 2px black solid;  
 
   transform: skewY(calc(-1 * atan(1/4)));
   transition: width .15s, margin .15s;

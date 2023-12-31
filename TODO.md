@@ -18,3 +18,4 @@ ADD HOVER ANIMATIONS, BORDERS TO EVERYTHING
 - Skills page
 - Contact page
 
+flash to hidden on push?

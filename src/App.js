@@ -36,9 +36,13 @@ function App() {
     await setTarget(0); //pop down to home page
 
     setTimeout(() => {
-      setNext(page);
-      setTarget(1);
+      pushStack(page)
     }, 500)
+  }
+
+  async function pushStack(page) {
+    setNext(page);
+    setTarget(target + 1);
   }
 
   useEffect(() => {
@@ -103,7 +107,7 @@ function App() {
                       top.classList.remove("showTop");
                       right.classList.remove("showRight");
                       proj.classList.remove("showProj");
-                  }}>
+                  }} onClick={() => {pushStack(5)}}>
                     <div className="project" id="p1">
                       <img className='image' src={'./Images/cat-spaghetti.jpg'} alt='bruh'></img>
                       <div className='projTitle'>Phase</div>
@@ -130,8 +134,8 @@ function App() {
                       proj.classList.remove("showProj");
                   }}>
                     <div className="project" id="p2">
-                      <div className='image'></div>
-                      <div>Optimal Odyssey</div>
+                      <img className='image' src={'./Images/cat-spaghetti.jpg'} alt='bruh'></img>
+                      <div className='projTitle'>Optimal Odyssey</div>
                     </div>
                     <div className="pTop" id='t2'></div>
                     <div className="pRight" id="r2"></div>
@@ -155,8 +159,8 @@ function App() {
                       proj.classList.remove("showProj");
                   }}>
                     <div className="project" id="p3">
-                      <div className='image'></div>
-                      <div>Clubfinity</div>
+                      <img className='image' src={'./Images/cat-spaghetti.jpg'} alt='bruh'></img>
+                      <div className='projTitle'>Clubfinity</div>
                     </div>
                     <div className="pTop" id='t3'></div>
                     <div className="pRight" id="r3"></div>
@@ -182,8 +186,8 @@ function App() {
                         proj.classList.remove("showProj");
                     }}>
                       <div className="project" id="p4">
-                        <div className='image'></div>
-                        <div>gpTA</div>
+                        <img className='image' src={'./Images/cat-spaghetti.jpg'} alt='bruh'></img>
+                        <div className='projTitle'>gpTA</div>
                       </div>
                       <div className="pTop" id='t4'></div>
                       <div className="pRight" id="r4"></div>
@@ -206,8 +210,8 @@ function App() {
                         proj.classList.remove("showProj");
                     }}>
                       <div className="project" id="p5">
-                        <div className='image'></div>
-                        <div>Climbr</div>
+                        <img className='image' src={'./Images/cat-spaghetti.jpg'} alt='bruh'></img>
+                        <div className='projTitle'>Climbr</div>
                       </div>
                       <div className="pTop" id='t5'></div>
                       <div className="pRight" id="r5"></div>
@@ -230,8 +234,8 @@ function App() {
                         proj.classList.remove("showProj");
                     }}>
                       <div className="project" id="p6">
-                        <div className='image'></div>
-                        <div>This website!</div>
+                        <img className='image' src={'./Images/cat-spaghetti.jpg'} alt='bruh'></img>
+                        <div className='projTitle'>This website!</div>
                       </div>
                       <div className="pTop" id='t6'></div>
                       <div className="pRight" id="r6"></div>
@@ -278,6 +282,7 @@ function App() {
           <div onClick={() => popDown(3)} onMouseEnter={() => setHover(3)} onMouseOut={() => setHover(-1)} style={hover === 3 ? {WebkitTextFillColor:`hsl(${colors[3]}, 100%, 50%)`} : {}}>Skills</div>
           <div onClick={() => popDown(4)} onMouseEnter={() => setHover(4)} onMouseOut={() => setHover(-1)} style={hover === 4 ? {WebkitTextFillColor:`hsl(${colors[4]}, 100%, 50%)`} : {}}>Contact</div>
           <button onClick={() => popStack(250)}>pop!</button>
+          <button onClick={() => pushStack(1)}>push!</button>
         </div>
       </div>
     </div>

@@ -19,7 +19,7 @@ function App() {
   const [stack, setStack] = useState([0, 1, 2, 3])
   const [hover, setHover] = useState(-1)
   const [target, setTarget] = useState(3)
-  const [adding, setAdding] = useState(false)
+  const [next, setNext] = useState(-1)
   const colors = [-1, 190, 150, 45, 20]
 
   async function popStack(delay) {
@@ -36,22 +36,30 @@ function App() {
     await setTarget(0); //pop down to home page
 
     setTimeout(() => {
-      setAdding(true);
+      setNext(page);
       setTarget(1);
-      setStack([0, page])
     }, 500)
   }
 
   useEffect(() => {
     console.log("stack update: ", stack)
     const curr = document.querySelector(".left");
-    if (!adding) {
+    if (next === -1) {
       curr.style.setProperty("transition", `0s ease-in-out`);
-    } else {
+      curr.classList.remove("hidden");
+    } else if (next === -2) {
+      setNext(-1);
       curr.style.setProperty("transition", `.25s ease-in-out`);
-      setAdding(false);
+      curr.classList.remove("hidden");
+    } else {
+      var temp = next;
+      setNext(-2);
+      curr.style.setProperty("transition", `0s ease-in-out`);
+      curr.classList.add("hidden");
+      setTimeout(() => {
+        setStack(stack.concat([temp]));
+      }, 0)
     }
-    curr.classList.remove("hidden");
 
     if (stack.length > target + 1) {
       setTimeout(() => {

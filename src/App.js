@@ -11,6 +11,12 @@ LEGEND:
   3 - Skills
   4 - Contact
 
+  5 - Phase
+  6 - OOdsy
+  7 - Clubfinity
+  8 - gpTA
+  9 - Climbr
+  10 - Portfolio
 
 
 */
@@ -132,7 +138,7 @@ function App() {
                       top.classList.remove("showTop");
                       right.classList.remove("showRight");
                       proj.classList.remove("showProj");
-                  }}>
+                  }} onClick={() => {pushStack(6)}}>
                     <div className="project" id="p2">
                       <img className='image' src={'./Images/cat-spaghetti.jpg'} alt='bruh'></img>
                       <div className='projTitle'>Optimal Odyssey</div>
@@ -157,7 +163,7 @@ function App() {
                       top.classList.remove("showTop");
                       right.classList.remove("showRight");
                       proj.classList.remove("showProj");
-                  }}>
+                  }} onClick={() => {pushStack(7)}}>
                     <div className="project" id="p3">
                       <img className='image' src={'./Images/cat-spaghetti.jpg'} alt='bruh'></img>
                       <div className='projTitle'>Clubfinity</div>
@@ -184,7 +190,7 @@ function App() {
                         top.classList.remove("showTop");
                         right.classList.remove("showRight");
                         proj.classList.remove("showProj");
-                    }}>
+                    }} onClick={() => {pushStack(8)}}>
                       <div className="project" id="p4">
                         <img className='image' src={'./Images/cat-spaghetti.jpg'} alt='bruh'></img>
                         <div className='projTitle'>gpTA</div>
@@ -208,7 +214,7 @@ function App() {
                         top.classList.remove("showTop");
                         right.classList.remove("showRight");
                         proj.classList.remove("showProj");
-                    }}>
+                    }} onClick={() => {pushStack(9)}}>
                       <div className="project" id="p5">
                         <img className='image' src={'./Images/cat-spaghetti.jpg'} alt='bruh'></img>
                         <div className='projTitle'>Climbr</div>
@@ -232,7 +238,7 @@ function App() {
                         top.classList.remove("showTop");
                         right.classList.remove("showRight");
                         proj.classList.remove("showProj");
-                    }}>
+                    }} onClick={() => {pushStack(10)}}>
                       <div className="project" id="p6">
                         <img className='image' src={'./Images/cat-spaghetti.jpg'} alt='bruh'></img>
                         <div className='projTitle'>This website!</div>

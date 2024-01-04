@@ -7,7 +7,7 @@
 }
 
 .projectHeader {
-  margin: 2% 0px;
+  margin-top: 2%;
   font-size: 50px;
   /* text-decoration: underline; */
   -webkit-text-fill-color: transparent;
@@ -17,15 +17,16 @@
 .projectRows {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height:calc(96vh - 64px - 79px - 40px);
   width: 100%;
 }
 
-.projectRow {
+.projectRow, .tripRow {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  height: 100%;
+  align-items: center;
+  height: 50%;
   width: 100%;
 }
 
@@ -144,4 +145,36 @@
 .projTitle {
   margin-bottom: 4%;
   font-size: 20px;
+}
+
+
+.tripRow {
+  height: 33%;
+}
+
+.genericContainer {
+  height: 60%;
+  width: 15%;
+  background-color: transparent;
+  border: 2px black solid;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+
+
+
+.subImage {
+  height: 80%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.subDesc {
+  width: 60%;
 }

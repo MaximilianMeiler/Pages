@@ -29,6 +29,7 @@ ADD HOVER ANIMATIONS, BORDERS TO EVERYTHING
   - Portfolio
 - Activity page
 - Skills page
+  - Make prettier?
 - Contact page
 
 flash to hidden on push?

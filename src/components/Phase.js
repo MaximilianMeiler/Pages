@@ -8,7 +8,8 @@ export default function Phase({
       <div className='projectHeader'>Phase</div>
 
       <div className='projectRow'>
-        <img className='subImage' src={'./Images/cat-spaghetti.jpg'} alt='bruh'></img>
+        <img className='subImage' src={'./Images/Phase1.jpg'} alt='bruh'></img>
+        <img className='subImage' src={'./Images/Phase2.jpg'} style={{marginLeft: '-20%'}} alt='bruh'></img>
         <div className='subDesc'> this is  acat</div>
       </div>
 

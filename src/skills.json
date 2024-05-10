@@ -1,0 +1,34 @@
+[
+  {
+    "title": "HTML/CSS",
+    "image": "html"
+  },
+  {
+    "title": "JavaScript",
+    "image": "js"
+  },
+  {
+    "title": "Python",
+    "image": "python"
+  },
+  {
+    "title": "C++",
+    "image": "cpp"
+  },
+  {
+    "title": "React",
+    "image": "react"
+  },
+  {
+    "title": "Node.js",
+    "image": "nodejs"
+  },
+  {
+    "title": "MongoDB",
+    "image": "mongo"
+  },
+  {
+    "title": "GitHub",
+    "image": "github"
+  }
+]

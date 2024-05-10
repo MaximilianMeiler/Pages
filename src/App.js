@@ -1,10 +1,14 @@
 import './App.css';
+
+import {useEffect, useState} from 'react';
+
 import Projects from './components/Projects';
 import Phase from './components/Phase';
-import {useEffect, useState} from 'react';
 import Skills from './components/Skills';
 import GridScreen from './components/GridScreen';
-import * as projects from './projects.json'
+
+import * as projects from './projects.json';
+import * as skills from './skills.json'
 
 /*
 
@@ -96,14 +100,15 @@ function App() {
           : stack[stack.length-1] === 1 ? 
             <div>This is the activity page</div> 
           : stack[stack.length-1] === 2 ? 
-            <Projects pushStack={pushStack}/>
+            // <Projects pushStack={pushStack}/>
+            <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={projects.default} header={"Projects"}/>
           : stack[stack.length-1] === 3 ? 
-            <Skills/>
+            // <Skills/>
+            <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={skills.default} header={"Skills"} clickable={false}/>
           : stack[stack.length-1] === 4 ? 
             <div>This is the contact page</div>
           : stack[stack.length-1] === 5 ? 
-            // <Phase pushStack={pushStack}/>
-            <GridScreen pushStack={pushStack} values={projects.default} header={"Projects"}/>
+            <Phase pushStack={pushStack}/>
           : <div>Error 404</div>
           }
 

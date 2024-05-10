@@ -8,7 +8,9 @@ import Skills from './components/Skills';
 import GridScreen from './components/GridScreen';
 
 import * as projects from './projects.json';
-import * as skills from './skills.json'
+import * as skills from './skills.json';
+import * as activity from './activity.json'
+import { act } from 'react';
 
 /*
 
@@ -98,7 +100,7 @@ function App() {
           {stack[stack.length-1] === 0 ? 
             <div>This is the about page</div>
           : stack[stack.length-1] === 1 ? 
-            <div>This is the activity page</div> 
+            <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={activity.default}/>
           : stack[stack.length-1] === 2 ? 
             // <Projects pushStack={pushStack}/>
             <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={projects.default}/>

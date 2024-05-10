@@ -4,6 +4,7 @@ import Phase from './components/Phase';
 import {useEffect, useState} from 'react';
 import Skills from './components/Skills';
 import GridScreen from './components/GridScreen';
+import * as projects from './projects.json'
 
 /*
 
@@ -102,7 +103,7 @@ function App() {
             <div>This is the contact page</div>
           : stack[stack.length-1] === 5 ? 
             // <Phase pushStack={pushStack}/>
-            <GridScreen pushStack={pushStack}/>
+            <GridScreen pushStack={pushStack} values={projects.default} header={"Projects"}/>
           : <div>Error 404</div>
           }
 

@@ -101,10 +101,10 @@ function App() {
             <div>This is the activity page</div> 
           : stack[stack.length-1] === 2 ? 
             // <Projects pushStack={pushStack}/>
-            <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={projects.default} header={"Projects"}/>
+            <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={projects.default}/>
           : stack[stack.length-1] === 3 ? 
             // <Skills/>
-            <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={skills.default} header={"Skills"} clickable={false}/>
+            <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={skills.default} clickable={false}/>
           : stack[stack.length-1] === 4 ? 
             <div>This is the contact page</div>
           : stack[stack.length-1] === 5 ? 

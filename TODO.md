@@ -3,11 +3,11 @@ ADD HOVER ANIMATIONS, BORDERS TO EVERYTHING
 ## general
 - Fix push animation
 - Add images to tabs w/ animations
+- make page indexing not a big if/else - pass indexes in dynamically to screens
+  - allocate an index range for activities, projects, etc. you can figure this out
 
 ## content
 - Project page
-  - General formatting
-
   - Phase
     - https://play.google.com/store/apps/details?id=com.maximilianmeiler.Phase&hl=en_US&pli=1
     - https://github.com/MaximilianMeiler/PhaseFrontend
@@ -27,9 +27,6 @@ ADD HOVER ANIMATIONS, BORDERS TO EVERYTHING
     - https://devpost.com/software/climbr-ou9zmg#updates
     - https://github.com/MaximilianMeiler/SwampHacks2023
   - Portfolio
-- Activity page
-- Skills page
-  - Make prettier?
-- Contact page
+- Contact page (use grid?)
 
 flash to hidden on push?

@@ -1,7 +1,7 @@
 import './GridScreen.css';
 
 export default function GridScreen({
-  pushStack, color, values, clickable = true
+  pushStack, color, values
 }) {
   const bgStyle = {
     "--color": color
@@ -17,7 +17,7 @@ export default function GridScreen({
 
               {v.data.map((d, i) => {
                 return (
-                <div className={clickable ? 'container clickable' : 'container'} onMouseEnter={() => {
+                <div className={d.page ? 'container clickable' : 'container'} onMouseEnter={() => {
                   var top = document.querySelector(`#t${j}-${i}`);
                   var right = document.querySelector(`#r${j}-${i}`);
                   var proj = document.querySelector(`#p${j}-${i}`);
@@ -33,7 +33,7 @@ export default function GridScreen({
                   top.classList.remove("showTop");
                   right.classList.remove("showRight");
                   proj.classList.remove("showProj");
-                }} onClick={clickable ? () => {pushStack(d.page)} : () => {}}>
+                }} onClick={d.page ? () => {pushStack(d.page)} : () => {}}>
                     <div className="project" id={`p${j}-${i}`} style={bgStyle}>
                       <img className='image' src={`./Images/${d.image}.png`} alt='Project logo'></img>
                       <div className='projTitle'>{d.title}</div>

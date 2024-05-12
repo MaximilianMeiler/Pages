@@ -1,0 +1,31 @@
+{
+  "pageTitle": "Home",
+  "images": [
+    "Climbr1",
+    "Climbr1",
+    "Clubfinity1",
+    "Clubfinity1"
+  ],
+  "imagesInCols" : true,
+  "content": [
+    {
+      "header": "About me",
+      "isParagraph": true,
+      "text": "Hi! I'm Maximilian, a student entering my third year at the University of Florida!"
+    },
+    {
+      "header": "What I'm working on",
+      "isParagraph": true,
+      "text": "Hi! I'm Maximilian, a student entering my third year at the University of Florida!"
+    },
+    {
+      "header": "Site links",
+      "isParagraph": false,
+      "data": [
+        {
+          
+        }
+      ]
+    }
+  ]
+}

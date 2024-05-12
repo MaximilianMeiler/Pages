@@ -6,10 +6,14 @@ import Projects from './components/Projects';
 import Phase from './components/Phase';
 import Skills from './components/Skills';
 import GridScreen from './components/GridScreen';
+import InfoScreen from './components/InfoScreen';
 
 import * as projects from './projects.json';
 import * as skills from './skills.json';
-import * as activity from './activity.json'
+import * as activity from './activity.json';
+import * as about from "./about.json";
+
+
 import { act } from 'react';
 
 /*
@@ -98,7 +102,7 @@ function App() {
           <div className='nestedTag' style={stack.length > 1 ? {left:`${100 + 140*(stack.length-1)}px`, backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 85%)`} : {left:`${100 + 100*(stack.length-1)}px`}}></div>
 
           {stack[stack.length-1] === 0 ? 
-            <div>This is the about page</div>
+            <InfoScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={about.default}/>
           : stack[stack.length-1] === 1 ? 
             <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={activity.default}/>
           : stack[stack.length-1] === 2 ? 
@@ -106,7 +110,7 @@ function App() {
             <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={projects.default}/>
           : stack[stack.length-1] === 3 ? 
             // <Skills/>
-            <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={skills.default} clickable={false}/>
+            <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={skills.default}/>
           : stack[stack.length-1] === 4 ? 
             <div>This is the contact page</div>
           : stack[stack.length-1] === 5 ? 

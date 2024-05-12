@@ -40,7 +40,7 @@ function App() {
   const [hover, setHover] = useState(-1)
   const [target, setTarget] = useState(3)
   const [next, setNext] = useState(-1)
-  const colors = [-1, 190, 150, 45, 20]
+  const colors = [100, 190, 150, 45, 20]
 
   async function popStack(delay) {
     const curr = document.querySelector(".left");
@@ -98,18 +98,16 @@ function App() {
     <div>
       <div className='trueBackground'></div>
       <div className='background'>
-        <div className='left' style={stack.length > 1 ? {backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 85%)`} : {}}>
-          <div className='nestedTag' style={stack.length > 1 ? {left:`${100 + 140*(stack.length-1)}px`, backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 85%)`} : {left:`${100 + 100*(stack.length-1)}px`}}></div>
+        <div className='left' style={{backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 85%)`}}>
+          <div className='nestedTag' style={{left:`${100 + 140*(stack.length-1)}px`, backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 85%)`}}></div>
 
           {stack[stack.length-1] === 0 ? 
             <InfoScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={about.default}/>
           : stack[stack.length-1] === 1 ? 
             <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={activity.default}/>
           : stack[stack.length-1] === 2 ? 
-            // <Projects pushStack={pushStack}/>
             <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={projects.default}/>
           : stack[stack.length-1] === 3 ? 
-            // <Skills/>
             <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={skills.default}/>
           : stack[stack.length-1] === 4 ? 
             <div>This is the contact page</div>
@@ -124,32 +122,34 @@ function App() {
           return (
             i !== stack.length - 1 ? 
               <div className='tag' 
-                style={i === 0 ? {} : {left:`${102 + 140*i}px`, backgroundColor:`hsl(${colors[stack[i]]}, 100%, 85%)`}}
+                style={{left:`${102 + 140*i}px`, backgroundColor:`hsl(${colors[stack[i]]}, 100%, 85%)`}}
                 onClick={() => setTarget(i)}
               ></div>
             : <></>
         )})}
 
         {stack.length > 1 ? 
-        <div className='leftBehind' style={stack.length > 2 ? {backgroundColor:`hsl(${colors[stack[stack.length-2]]}, 100%, 85%)`} : {}}>
+        <div className='leftBehind' style={{backgroundColor:`hsl(${colors[stack[stack.length-2]]}, 100%, 85%)`}}>
 
           {stack[stack.length-2] === 0 ? 
-            <div>This is the about page</div>
+            <InfoScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={about.default}/>
           : stack[stack.length-2] === 1 ? 
-            <div>This is the activity page</div> 
+            <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={activity.default}/>
           : stack[stack.length-2] === 2 ? 
-            <Projects pushStack={pushStack}/>
+            <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={projects.default}/>
           : stack[stack.length-2] === 3 ? 
-            <div>This is the skills page</div>
+            <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={skills.default}/>
           : stack[stack.length-2] === 4 ? 
             <div>This is the contact page</div>
+          : stack[stack.length-2] === 5 ? 
+            <Phase pushStack={pushStack}/>
           : <div>Error 404</div>
           }
         </div>
         : <></>}
 
-        <div className='top' style={stack.length > 1 ? {backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 80%)`} : {}}></div>
-        <div className='right' style={stack.length > 1 ? {backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 75%)`} : {}}>
+        <div className='top' style={{backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 80%)`}}></div>
+        <div className='right' style={{backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 75%)`}}>
           <div onClick={() => popDown(1)} onMouseEnter={() => setHover(1)} onMouseOut={() => setHover(-1)} style={hover === 1 ? {WebkitTextFillColor:`hsl(${colors[1]}, 100%, 50%)`} : {}}>Activity</div>
           <div onClick={() => popDown(2)} onMouseEnter={() => setHover(2)} onMouseOut={() => setHover(-1)} style={hover === 2 ? {WebkitTextFillColor:`hsl(${colors[2]}, 100%, 50%)`} : {}}>Projects</div>
           <div onClick={() => popDown(3)} onMouseEnter={() => setHover(3)} onMouseOut={() => setHover(-1)} style={hover === 3 ? {WebkitTextFillColor:`hsl(${colors[3]}, 100%, 50%)`} : {}}>Skills</div>

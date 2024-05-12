@@ -3,6 +3,7 @@ import './GridScreen.css';
 export default function Grid({
   pushStack, color, value, index
 }) {
+
   const bgStyle = {
     "--color": color
   }

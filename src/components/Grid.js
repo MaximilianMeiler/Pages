@@ -1,7 +1,7 @@
 import './GridScreen.css';
 
 export default function Grid({
-  pushStack, color, value, index
+  pushStack, color, value, index, linkIndex
 }) {
 
   const bgStyle = {
@@ -29,7 +29,7 @@ export default function Grid({
           top.classList.remove("showTop");
           right.classList.remove("showRight");
           proj.classList.remove("showProj");
-        }} onClick={d.link ? () => {pushStack(d.link)} : () => {}}>
+        }} onClick={d.link ? () => {pushStack(linkIndex + 20 * index + i + 1)} : () => {}}>
             <div className="project" id={`p${index}-${i}`} style={bgStyle}>
               <img className='image' src={`./Images/${d.image}.png`} alt='Project logo'></img>
               <div className='projTitle'>{d.title}</div>

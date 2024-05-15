@@ -2,7 +2,7 @@ import './InfoScreen.css';
 import Grid from './Grid';
 
 export default function InfoScreen({
-  pushStack, color, values
+  pushStack, color, values, linkIndex
 }) {
   const bgStyle = {
     "--color": color
@@ -29,7 +29,7 @@ export default function InfoScreen({
                     {c.text}
                   </div>
                 : 
-                  <Grid pushStack={pushStack} color={color} value={c} index={j} />
+                  <Grid pushStack={pushStack} color={color} value={c} index={j} linkIndex={linkIndex}/>
                 }
               </div>
             )

@@ -7,7 +7,7 @@
       {
         "title": "Verizon",
         "image": "html",
-        "link": 5,
+        "link": true,
         "page": {
           "pageTitle": "Home",
           "images": [
@@ -35,17 +35,17 @@
                 {
                   "title": "CatCorp",
                   "image": "CatTemplate",
-                  "page": 5
+                  "link": true
                 },
                 {
                   "title": "Optimal Odyssey",
                   "image": "globe",
-                  "page": 5
+                  "link": true
                 },
                 {
                   "title": "Clubfinity",
                   "image": "ClubfinityLogoB",
-                  "page": 5
+                  "link": true
                 }
               ]
             }
@@ -62,17 +62,17 @@
       {
         "title": "Software Engineering Club",
         "image": "html",
-        "link": 5
+        "link": true
       },
       {
         "title": "Programming Team",
         "image": "html",
-        "link": 5
+        "link": true
       },
       {
         "title": "Open Source Club",
         "image": "html",
-        "link": 5
+        "link": true
       }
     ]
   }

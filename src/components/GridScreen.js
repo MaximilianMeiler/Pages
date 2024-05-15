@@ -2,7 +2,7 @@ import './GridScreen.css';
 import Grid from './Grid';
 
 export default function GridScreen({
-  pushStack, color, values
+  pushStack, color, values, linkIndex
 }) {
   const bgStyle = {
     "--color": color
@@ -14,7 +14,7 @@ export default function GridScreen({
         return (
           <div className="group" style={{flex: v.flex}}>
             <div className='header'>{v.title}</div>
-            <Grid pushStack={pushStack} color={color} value={v} index={j}/>
+            <Grid pushStack={pushStack} color={color} value={v} index={j} linkIndex={linkIndex}/>
           </div>
         )
       })}

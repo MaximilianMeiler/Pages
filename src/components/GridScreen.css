@@ -52,6 +52,16 @@
   border: 2px black solid;
   z-index: 10;
 
+  top: 0px;
+  margin-top: 0px;
+  right: 0px;
+  margin-right: 0px;
+  bottom: 0;
+  margin-bottom: 10px;
+  left: 0;
+  margin-left: 40px;
+  transition: margin .15s;
+
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -144,3 +154,20 @@
   font-size: 20px;
   text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

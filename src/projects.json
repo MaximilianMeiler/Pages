@@ -7,47 +7,47 @@
       {
         "title": "CatCorp",
         "image": "CatTemplate",
-        "page": 5
+        "link": 5
       },
       {
         "title": "Optimal Odyssey",
         "image": "globe",
-        "page": 5
+        "link": 5
       },
       {
         "title": "Clubfinity",
         "image": "ClubfinityLogoB",
-        "page": 5
+        "link": 5
       },
       {
         "title": "Phase",
         "image": "PhaseLogoB",
-        "page": 5
+        "link": 5
       },
       {
         "title": "Climbr",
         "image": "PhaseLogoB",
-        "page": 5
+        "link": 5
       },
       {
         "title": "Alarm Clock",
         "image": "PhaseLogoB",
-        "page": 5
+        "link": 5
       },
       {
         "title": "gpTA",
         "image": "PhaseLogoB",
-        "page": 5
+        "link": 5
       },
       {
         "title": "This website!",
         "image": "PhaseLogoB",
-        "page": 5
+        "link": 5
       },
       {
         "title": "TypeOff",
         "image": "PhaseLogoB",
-        "page": 5
+        "link": 5
       }
     ]
   }

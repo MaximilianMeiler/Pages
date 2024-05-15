@@ -13,7 +13,7 @@ export default function Grid({
 
       {value.data.map((d, i) => {
         return (
-        <div className={d.page ? 'container clickable' : 'container'} onMouseEnter={() => {
+        <div className={d.link ? 'container clickable' : 'container'} onMouseEnter={() => {
           var top = document.querySelector(`#t${index}-${i}`);
           var right = document.querySelector(`#r${index}-${i}`);
           var proj = document.querySelector(`#p${index}-${i}`);
@@ -29,7 +29,7 @@ export default function Grid({
           top.classList.remove("showTop");
           right.classList.remove("showRight");
           proj.classList.remove("showProj");
-        }} onClick={d.page ? () => {pushStack(d.page)} : () => {}}>
+        }} onClick={d.link ? () => {pushStack(d.link)} : () => {}}>
             <div className="project" id={`p${index}-${i}`} style={bgStyle}>
               <img className='image' src={`./Images/${d.image}.png`} alt='Project logo'></img>
               <div className='projTitle'>{d.title}</div>

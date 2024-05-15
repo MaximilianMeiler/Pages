@@ -2,9 +2,6 @@ import './App.css';
 
 import {useEffect, useState} from 'react';
 
-import Projects from './components/Projects';
-import Phase from './components/Phase';
-import Skills from './components/Skills';
 import GridScreen from './components/GridScreen';
 import InfoScreen from './components/InfoScreen';
 
@@ -13,17 +10,13 @@ import * as skills from './skills.json';
 import * as activity from './activity.json';
 import * as about from "./about.json";
 
-
-import { act } from 'react';
-
 /*
-
 LEGEND:
   0 - Directory
-  1 - Activity
-  2 - Projects
-  3 - Skills
-  4 - Contact
+  100 - Activity
+  200 - Projects
+  300 - Skills
+  400 - Contact
 
   5 - Phase
   6 - OOdsy
@@ -31,16 +24,20 @@ LEGEND:
   8 - gpTA
   9 - Climbr
   10 - Portfolio
-
-
 */
 
 function App() {
-  const [stack, setStack] = useState([0, 1, 2, 3])
-  const [hover, setHover] = useState(-1)
-  const [target, setTarget] = useState(3)
-  const [next, setNext] = useState(-1)
-  const colors = [100, 190, 150, 45, 20]
+  const [stack, setStack] = useState([0]);
+  const [hover, setHover] = useState(-1);
+  const [target, setTarget] = useState(3);
+  const [next, setNext] = useState(-1);
+  const colors = {
+    0: 100,
+    100: 190,
+    200: 150,
+    300: 45,
+    400: 20
+  };
 
   async function popStack(delay) {
     const curr = document.querySelector(".left");
@@ -101,18 +98,20 @@ function App() {
         <div className='left' style={{backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 85%)`}}>
           <div className='nestedTag' style={{left:`${100 + 140*(stack.length-1)}px`, backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 85%)`}}></div>
 
-          {stack[stack.length-1] === 0 ? 
+          {stack[stack.length-1] === 0 ? //about
             <InfoScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={about.default}/>
-          : stack[stack.length-1] === 1 ? 
+          : stack[stack.length-1] === 100 ?  //activity
             <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={activity.default}/>
-          : stack[stack.length-1] === 2 ? 
+          : stack[stack.length-1] < 200 ? 
+            <InfoScreen pushStack={pushStack} color={190} values={activity.default[Math.floor(stack[stack.length-1] % 100 / 20)].data[Math.floor(stack[stack.length-1] % 100 % 20 - 1)].page}/>
+          : stack[stack.length-1] === 200 ? //projects
             <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={projects.default}/>
-          : stack[stack.length-1] === 3 ? 
+          : stack[stack.length-1] < 300 ? 
+            <InfoScreen pushStack={pushStack} color={150} values/>
+          : stack[stack.length-1] === 300 ? //skills
             <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={skills.default}/>
-          : stack[stack.length-1] === 4 ? 
+          : stack[stack.length-1] === 400 ? //contact
             <div>This is the contact page</div>
-          : stack[stack.length-1] === 5 ? 
-            <Phase pushStack={pushStack}/>
           : <div>Error 404</div>
           }
 
@@ -131,18 +130,16 @@ function App() {
         {stack.length > 1 ? 
         <div className='leftBehind' style={{backgroundColor:`hsl(${colors[stack[stack.length-2]]}, 100%, 85%)`}}>
 
-          {stack[stack.length-2] === 0 ? 
+          {stack[stack.length-2] === 0 ? //about
             <InfoScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={about.default}/>
-          : stack[stack.length-2] === 1 ? 
+          : stack[stack.length-2] === 100 ?  //activity
             <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={activity.default}/>
-          : stack[stack.length-2] === 2 ? 
+          : stack[stack.length-2] === 200 ? //projects
             <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={projects.default}/>
-          : stack[stack.length-2] === 3 ? 
+          : stack[stack.length-2] === 300 ? //skills
             <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={skills.default}/>
-          : stack[stack.length-2] === 4 ? 
+          : stack[stack.length-2] === 400 ? 
             <div>This is the contact page</div>
-          : stack[stack.length-2] === 5 ? 
-            <Phase pushStack={pushStack}/>
           : <div>Error 404</div>
           }
         </div>

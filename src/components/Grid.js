@@ -1,7 +1,7 @@
 import './GridScreen.css';
 
 export default function Grid({
-  pushStack, color, value, index, linkIndex
+  pushStack, color, value, index, linkIndex, tiny = false
 }) {
 
   const bgStyle = {
@@ -9,7 +9,7 @@ export default function Grid({
   }
 
   return (
-    <div className='grid'>
+    <div className='grid' style={tiny ? {gridTemplateColumns: 'repeat( auto-fit, minmax(50px, 1fr))'} : {}}>
 
       {value.data.map((d, i) => {
         return (
@@ -29,10 +29,10 @@ export default function Grid({
           top.classList.remove("showTop");
           right.classList.remove("showRight");
           proj.classList.remove("showProj");
-        }} onClick={d.link ? () => {pushStack(linkIndex + 20 * index + i + 1)} : () => {}}>
+        }} onClick={d.link ? () => {d.redirect ? window.open(d.redirect) : pushStack(linkIndex + 20 * index + i + 1)} : () => {}}>
             <div className="project" id={`p${index}-${i}`} style={bgStyle}>
-              <img className='image' src={`./Images/${d.image}.png`} alt='Project logo'></img>
-              <div className='projTitle'>{d.title}</div>
+              {d.image ? <img className='image' src={`./Images/${d.image}.png`} alt='Project logo'></img> : <></>}
+              {d.title ? <div className='projTitle'>{d.title}</div> : <></>}
             </div>
             <div className="pTop" id={`t${index}-${i}`} style={{backgroundColor: `hsl(${color}, 100%, 80%)`}}></div>
             <div className="pRight" id={`r${index}-${i}`} style={{backgroundColor: `hsl(${color}, 100%, 75%)`}}></div>

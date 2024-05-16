@@ -14,7 +14,9 @@ export default function GridScreen({
         return (
           <div className="group" style={{flex: v.flex}}>
             <div className='header'>{v.title}</div>
-            <Grid pushStack={pushStack} color={color} value={v} index={j} linkIndex={linkIndex}/>
+            <div className="gridContainer">
+              <Grid pushStack={pushStack} color={color} value={v} index={j} linkIndex={linkIndex}/>
+            </div>
           </div>
         )
       })}

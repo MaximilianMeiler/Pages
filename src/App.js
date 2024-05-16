@@ -107,7 +107,7 @@ function App() {
           : stack[stack.length-1] === 200 ? //projects
             <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={projects.default} linkIndex={200}/>
           : stack[stack.length-1] < 300 ? 
-            <InfoScreen pushStack={pushStack} color={150} values/>
+            <InfoScreen pushStack={pushStack} color={150} values={projects.default[Math.floor(stack[stack.length-1] % 100 / 20)].data[Math.floor(stack[stack.length-1] % 100 % 20 - 1)].page}/>
           : stack[stack.length-1] === 300 ? //skills
             <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={skills.default}/>
           : stack[stack.length-1] === 400 ? //contact

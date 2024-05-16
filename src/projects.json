@@ -7,12 +7,123 @@
       {
         "title": "CatCorp",
         "image": "CatTemplate",
-        "link": true
+        "link": true,
+        "page": {
+          "pageTitle": "CatCorp",
+          "images": [
+            
+          ],
+          "imagesInCols" : true,
+          "content": [
+            {
+              "header": "Overview",
+              "isParagraph": true,
+              "text": "CatCorp is a productivity webapp targeted towards university students. It interfaces with the Canvas API using a student's API key, tracking the completion of assignments and rewarding users based on their accuracy and punctuality. An interface offer students several features, such as a list of upcoming assignments, a shop to spend earned currency in, and a multiplayer system where all users of a class must work together to achieve a weekly goal."
+            },
+            {
+              "header": "Tools used",
+              "isParagraph": false,
+              "data":
+              [
+                {
+                  "image": "html"
+                },
+                {
+                  "image": "js"
+                },
+                {
+                  "image": "react"
+                },
+                {
+                  "image": "nodejs"
+                },
+                {
+                  "image": "mongo"
+                },
+                {
+                  "image": "vite"
+                }
+              ]
+            },
+            {
+              "header": "Links",
+              "isParagraph": false,
+              "data": [
+                {
+                  "title": "Site Link",
+                  "image": "link",
+                  "link": true,
+                  "redirect": "https://catcorp.vercel.app/"
+                },
+                {
+                  "title": "GitHub",
+                  "image": "github",
+                  "link": true,
+                  "redirect": "https://github.com/kthchew/CatCorp"
+                }
+              ]
+            }
+          ]
+        }
       },
       {
         "title": "Optimal Odyssey",
         "image": "globe",
-        "link": true
+        "link": true,
+        "page": {
+          "pageTitle": "CatCorp",
+          "images": [
+            
+          ],
+          "imagesInCols" : true,
+          "content": [
+            {
+              "header": "Overview",
+              "isParagraph": true,
+              "text": "CatCorp is a productivity webapp targeted towards university students. It interfaces with the Canvas API using a student's API key, tracking the completion of assignments and rewarding users based on their accuracy and punctuality. An interface offer students several features, such as a list of upcoming assignments, a shop to spend earned currency in, and a multiplayer system where all users of a class must work together to achieve a weekly goal."
+            },
+            {
+              "header": "Tools used",
+              "isParagraph": false,
+              "data":
+              [
+                {
+                  "image": "html"
+                },
+                {
+                  "image": "js"
+                },
+                {
+                  "image": "react"
+                },
+                {
+                  "image": "nodejs"
+                },
+                {
+                  "image": "mongo"
+                }
+              ]
+            },
+            {
+              "header": "Links",
+              "isParagraph": false,
+              "data": [
+                {
+                  "title": "Site Link",
+                  "image": "link",
+                  "link": true,
+                  "redirect": "https://catcorp.vercel.app/"
+                },
+                {
+                  "title": "GitHub",
+                  "image": "github",
+                  "link": true,
+                  "redirect": "https://github.com/kthchew/CatCorp"
+                }
+              ]
+            }
+          ]
+        }
       },
       {
         "title": "Clubfinity",

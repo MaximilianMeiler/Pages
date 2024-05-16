@@ -7,50 +7,7 @@
       {
         "title": "Verizon",
         "image": "html",
-        "link": true,
-        "page": {
-          "pageTitle": "Home",
-          "images": [
-            "Climbr1",
-            "Climbr1",
-            "Clubfinity1",
-            "Clubfinity1"
-          ],
-          "imagesInCols" : true,
-          "content": [
-            {
-              "header": "About me",
-              "isParagraph": true,
-              "text": "Hi! I'm Maximilian, a student entering my third year at the University of Florida!"
-            },
-            {
-              "header": "What I'm working on",
-              "isParagraph": true,
-              "text": "Hi! I'm Maximilian, a student entering my third year at the University of Florida!"
-            },
-            {
-              "header": "Site links",
-              "isParagraph": false,
-              "data": [
-                {
-                  "title": "CatCorp",
-                  "image": "CatTemplate",
-                  "link": true
-                },
-                {
-                  "title": "Optimal Odyssey",
-                  "image": "globe",
-                  "link": true
-                },
-                {
-                  "title": "Clubfinity",
-                  "image": "ClubfinityLogoB",
-                  "link": true
-                }
-              ]
-            }
-          ]
-        }
+        "link": true
       }
     ]
   },

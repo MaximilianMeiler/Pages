@@ -71,7 +71,7 @@
         "image": "globe",
         "link": true,
         "page": {
-          "pageTitle": "CatCorp",
+          "pageTitle": "Optimal Odyssey",
           "images": [
             
           ],
@@ -80,7 +80,7 @@
             {
               "header": "Overview",
               "isParagraph": true,
-              "text": "CatCorp is a productivity webapp targeted towards university students. It interfaces with the Canvas API using a student's API key, tracking the completion of assignments and rewarding users based on their accuracy and punctuality. An interface offer students several features, such as a list of upcoming assignments, a shop to spend earned currency in, and a multiplayer system where all users of a class must work together to achieve a weekly goal."
+              "text": "Optimal Odyssey is a algorithm visualization tool which plots travelling salesperson solutions across a 3d globe. The globe, rendered using CesiumJS, allows users to plot cities and then compute the optimal spherical distance between them all (calculated using the Held-Karp algorithm). Various approximations, including a user path selection tool, are also included."
             },
             {
               "header": "Tools used",
@@ -100,7 +100,10 @@
                   "image": "nodejs"
                 },
                 {
-                  "image": "mongo"
+                  "image": "vite"
+                },
+                {
+                  "image": "cesium"
                 }
               ]
             },
@@ -118,7 +121,7 @@
                   "title": "GitHub",
                   "image": "github",
                   "link": true,
-                  "redirect": "https://github.com/kthchew/CatCorp"
+                  "redirect": "https://github.com/MaximilianMeiler/3530-Proj3"
                 }
               ]
             }
@@ -141,7 +144,7 @@
         "link": true
       },
       {
-        "title": "Alarm Clock",
+        "title": "OSC Alarm",
         "image": "PhaseLogoB",
         "link": true
       },

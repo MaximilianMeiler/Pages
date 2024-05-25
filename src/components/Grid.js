@@ -31,7 +31,7 @@ export default function Grid({
           proj.classList.remove("showProj");
         }} onClick={d.link ? () => {d.redirect ? window.open(d.redirect) : pushStack(linkIndex + 20 * index + i + 1)} : () => {}}>
             <div className="project" id={`p${index}-${i}`} style={bgStyle}>
-              {d.image ? <img className='image' src={`./Images/${d.image}.png`} alt='Project logo'></img> : <></>}
+              {d.image ? <img className='image' src={`./Images/${d.image}.png`} alt={d.image}></img> : <></>}
               {d.title ? <div className='projTitle'>{d.title}</div> : <></>}
             </div>
             <div className="pTop" id={`t${index}-${i}`} style={{backgroundColor: `hsl(${color}, 100%, 80%)`}}></div>

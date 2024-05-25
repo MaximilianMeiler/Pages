@@ -7,47 +7,161 @@
       {
         "title": "CatCorp",
         "image": "CatTemplate",
-        "page": 5
+        "link": true,
+        "page": {
+          "pageTitle": "CatCorp",
+          "images": [
+            
+          ],
+          "imagesInCols" : true,
+          "content": [
+            {
+              "header": "Overview",
+              "isParagraph": true,
+              "text": "CatCorp is a productivity webapp targeted towards university students. It interfaces with the Canvas API using a student's API key, tracking the completion of assignments and rewarding users based on their accuracy and punctuality. An interface offer students several features, such as a list of upcoming assignments, a shop to spend earned currency in, and a multiplayer system where all users of a class must work together to achieve a weekly goal."
+            },
+            {
+              "header": "Tools used",
+              "isParagraph": false,
+              "data":
+              [
+                {
+                  "image": "html"
+                },
+                {
+                  "image": "js"
+                },
+                {
+                  "image": "react"
+                },
+                {
+                  "image": "nodejs"
+                },
+                {
+                  "image": "mongo"
+                },
+                {
+                  "image": "vite"
+                }
+              ]
+            },
+            {
+              "header": "Links",
+              "isParagraph": false,
+              "data": [
+                {
+                  "title": "Site Link",
+                  "image": "link",
+                  "link": true,
+                  "redirect": "https://catcorp.vercel.app/"
+                },
+                {
+                  "title": "GitHub",
+                  "image": "github",
+                  "link": true,
+                  "redirect": "https://github.com/kthchew/CatCorp"
+                }
+              ]
+            }
+          ]
+        }
       },
       {
         "title": "Optimal Odyssey",
         "image": "globe",
-        "page": 5
+        "link": true,
+        "page": {
+          "pageTitle": "Optimal Odyssey",
+          "images": [
+            
+          ],
+          "imagesInCols" : true,
+          "content": [
+            {
+              "header": "Overview",
+              "isParagraph": true,
+              "text": "Optimal Odyssey is a algorithm visualization tool which plots travelling salesperson solutions across a 3d globe. The globe, rendered using CesiumJS, allows users to plot cities and then compute the optimal spherical distance between them all (calculated using the Held-Karp algorithm). Various approximations, including a user path selection tool, are also included."
+            },
+            {
+              "header": "Tools used",
+              "isParagraph": false,
+              "data":
+              [
+                {
+                  "image": "html"
+                },
+                {
+                  "image": "js"
+                },
+                {
+                  "image": "react"
+                },
+                {
+                  "image": "nodejs"
+                },
+                {
+                  "image": "vite"
+                },
+                {
+                  "image": "cesium"
+                }
+              ]
+            },
+            {
+              "header": "Links",
+              "isParagraph": false,
+              "data": [
+                {
+                  "title": "Site Link",
+                  "image": "link",
+                  "link": true,
+                  "redirect": "https://catcorp.vercel.app/"
+                },
+                {
+                  "title": "GitHub",
+                  "image": "github",
+                  "link": true,
+                  "redirect": "https://github.com/MaximilianMeiler/3530-Proj3"
+                }
+              ]
+            }
+          ]
+        }
       },
       {
         "title": "Clubfinity",
         "image": "ClubfinityLogoB",
-        "page": 5
+        "link": true
       },
       {
         "title": "Phase",
         "image": "PhaseLogoB",
-        "page": 5
+        "link": true
       },
       {
         "title": "Climbr",
         "image": "PhaseLogoB",
-        "page": 5
+        "link": true
       },
       {
-        "title": "Alarm Clock",
+        "title": "OSC Alarm",
         "image": "PhaseLogoB",
-        "page": 5
+        "link": true
       },
       {
         "title": "gpTA",
         "image": "PhaseLogoB",
-        "page": 5
+        "link": true
       },
       {
         "title": "This website!",
         "image": "PhaseLogoB",
-        "page": 5
+        "link": true
       },
       {
         "title": "TypeOff",
         "image": "PhaseLogoB",
-        "page": 5
+        "link": true
       }
     ]
   }

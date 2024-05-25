@@ -25,17 +25,17 @@
         {
           "title": "CatCorp",
           "image": "CatTemplate",
-          "page": 5
+          "link": true
         },
         {
           "title": "Optimal Odyssey",
           "image": "globe",
-          "page": 5
+          "link": true
         },
         {
           "title": "Clubfinity",
           "image": "ClubfinityLogoB",
-          "page": 5
+          "link": true
         }
       ]
     }

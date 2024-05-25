@@ -7,7 +7,7 @@
       {
         "title": "Verizon",
         "image": "html",
-        "page": 5
+        "link": true
       }
     ]
   },
@@ -19,17 +19,17 @@
       {
         "title": "Software Engineering Club",
         "image": "html",
-        "page": 5
+        "link": true
       },
       {
         "title": "Programming Team",
         "image": "html",
-        "page": 5
+        "link": true
       },
       {
         "title": "Open Source Club",
         "image": "html",
-        "page": 5
+        "link": true
       }
     ]
   }

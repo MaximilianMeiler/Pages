@@ -2,13 +2,7 @@ import './App.css';
 
 import {useEffect, useState} from 'react';
 
-import GridScreen from './components/GridScreen';
-import InfoScreen from './components/InfoScreen';
-
-import * as projects from './projects.json';
-import * as skills from './skills.json';
-import * as activity from './activity.json';
-import * as about from "./about.json";
+import Router from "./components/Router";
 
 /*
 LEGEND:
@@ -28,9 +22,15 @@ LEGEND:
 
 function App() {
   const [stack, setStack] = useState([0]);
+
+  const [target, setTarget] = useState(-1);
+  const [queued, setQueued] = useState(-1);
+
+  const [index, setIndex] = useState(0);
+  const [backIndex, setBackIndex] = useState(-1)
+
   const [hover, setHover] = useState(-1);
-  const [target, setTarget] = useState(3);
-  const [next, setNext] = useState(-1);
+
   const colors = {
     0: 100,
     100: 190,
@@ -45,76 +45,61 @@ function App() {
     curr.classList.add("hidden");
 
     setTimeout(() => {
+      setIndex(index - 1);
+      curr.style.setProperty("transition", `transform 0s ease-in-out`);
+      curr.classList.remove("hidden");
+  
+      setBackIndex(backIndex - 1);
+
       setStack(stack.slice(0, stack.length-1));
-    }, delay)
+    }, delay - 10)
   }
 
   async function popDown(page) {
-    await setTarget(0); //pop down to home page
-
-    setTimeout(() => {
-      pushStack(page)
-    }, 500)
+    var t = stack.lastIndexOf(page);
+    if (t === -1) {
+      t = 0;
+      setQueued(page);
+    }
+    setTarget(t) 
   }
+
+  //popDown logic
+  useEffect(() => {
+    if (target !== -1 && stack.length-1 > target) {
+      popStack(250 / (stack.length - target - 1));
+    } else {
+      setTarget(-1);
+      if (queued !== -1) {
+        pushStack(queued);
+        setQueued(-1);
+      }
+    }
+  }, [target, stack])
 
   async function pushStack(page) {
-    setNext(page);
-    setTarget(target + 1);
-  }
-
-  useEffect(() => {
-    console.log("stack update: ", stack)
     const curr = document.querySelector(".left");
-    if (next === -1) {
-      curr.style.setProperty("transition", `0s ease-in-out`);
-      curr.classList.remove("hidden");
-    } else if (next === -2) {
-      setNext(-1);
+    await setStack(stack.concat([page]))
+
+    setBackIndex(backIndex + 1);
+    curr.style.setProperty("transition", `0s ease-in-out`);
+    curr.classList.add("hidden");
+    setIndex(index + 1);
+    
+    setTimeout(() => {
       curr.style.setProperty("transition", `.25s ease-in-out`);
       curr.classList.remove("hidden");
-    } else {
-      var temp = next;
-      setNext(-2);
-      curr.style.setProperty("transition", `0s ease-in-out`);
-      curr.classList.add("hidden");
-      setTimeout(() => {
-        setStack(stack.concat([temp]));
-      }, 0)
-    }
-
-    if (stack.length > target + 1) {
-      setTimeout(() => {
-        const time = 250 / (stack.length - target - 1);
-        popStack(time);
-      }, 0) //this somehow solves a problem
-    }
-
-  }, [stack, target])
+    }, 0)
+  }
 
   return (
     <div>
       <div className='trueBackground'></div>
       <div className='background'>
-        <div className='left' style={{backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 85%)`}}>
-          <div className='nestedTag' style={{left:`${100 + 140*(stack.length-1)}px`, backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 85%)`}}></div>
 
-          {stack[stack.length-1] === 0 ? //about
-            <InfoScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={about.default}/>
-          : stack[stack.length-1] === 100 ?  //activity
-            <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={activity.default} linkIndex={100}/>
-          : stack[stack.length-1] < 200 ? 
-            <InfoScreen pushStack={pushStack} color={190} values={activity.default[Math.floor(stack[stack.length-1] % 100 / 20)].data[Math.floor(stack[stack.length-1] % 100 % 20 - 1)].page}/>
-          : stack[stack.length-1] === 200 ? //projects
-            <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={projects.default} linkIndex={200}/>
-          : stack[stack.length-1] < 300 ? 
-            <InfoScreen pushStack={pushStack} color={150} values={projects.default[Math.floor(stack[stack.length-1] % 100 / 20)].data[Math.floor(stack[stack.length-1] % 100 % 20 - 1)].page}/>
-          : stack[stack.length-1] === 300 ? //skills
-            <GridScreen pushStack={pushStack} color={colors[stack[stack.length-1]]} values={skills.default}/>
-          : stack[stack.length-1] === 400 ? //contact
-            <div>This is the contact page</div>
-          : <div>Error 404</div>
-          }
-
+        <div className='left' style={{backgroundColor:`hsl(${colors[stack[index]]}, 100%, 85%)`}}>
+          <div className='nestedTag' style={{left:`${100 + 140*(index)}px`, backgroundColor:`hsl(${colors[stack[index]]}, 100%, 85%)`}}></div>
+          <Router colors={colors} stack={stack} index={index} pushStack={pushStack}/>
         </div>
 
         {stack.map((v, i) => { //non-last tags
@@ -127,36 +112,23 @@ function App() {
             : <></>
         )})}
 
-        {stack.length > 1 ? 
-        <div className='leftBehind' style={{backgroundColor:`hsl(${colors[stack[stack.length-2]]}, 100%, 85%)`}}>
+        {index > 0 ? 
+        <div className='leftBehind' style={{backgroundColor:`hsl(${colors[stack[backIndex]]}, 100%, 85%)`}}>
 
-          {stack[stack.length-2] === 0 ? //about
-            <InfoScreen pushStack={pushStack} color={colors[stack[stack.length-2]]} values={about.default}/>
-          : stack[stack.length-2] === 100 ?  //activity
-            <GridScreen pushStack={pushStack} color={colors[stack[stack.length-2]]} values={activity.default}/>
-          : stack[stack.length-2] < 200 ? 
-            <InfoScreen pushStack={pushStack} color={190} values={activity.default[Math.floor(stack[stack.length-2] % 100 / 20)].data[Math.floor(stack[stack.length-2] % 100 % 20 - 1)].page}/>
-          : stack[stack.length-2] === 200 ? //projects
-            <GridScreen pushStack={pushStack} color={colors[stack[stack.length-2]]} values={projects.default}/>
-          : stack[stack.length-2] < 300 ? 
-            <InfoScreen pushStack={pushStack} color={150} values/>
-          : stack[stack.length-2] === 300 ? //skills
-            <GridScreen pushStack={pushStack} color={colors[stack[stack.length-2]]} values={skills.default}/>
-          : stack[stack.length-2] === 400 ? //contact
-            <div>This is the contact page</div>
-          : <div>Error 404</div>
-          }
+          <Router colors={colors} stack={stack} index={backIndex} pushStack={pushStack}/>
         </div>
         : <></>}
 
-        <div className='top' style={{backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 80%)`}}></div>
-        <div className='right' style={{backgroundColor:`hsl(${colors[stack[stack.length-1]]}, 100%, 75%)`}}>
+        
+
+        <div className='top' style={{backgroundColor:`hsl(${colors[stack[index]]}, 100%, 80%)`}}></div>
+        <div className='right' style={{backgroundColor:`hsl(${colors[stack[index]]}, 100%, 75%)`}}>
           <div onClick={() => popDown(100)} onMouseEnter={() => setHover(1)} onMouseOut={() => setHover(-1)} style={hover === 1 ? {WebkitTextFillColor:`hsl(${colors[1]}, 100%, 50%)`} : {}}>Activity</div>
           <div onClick={() => popDown(200)} onMouseEnter={() => setHover(2)} onMouseOut={() => setHover(-1)} style={hover === 2 ? {WebkitTextFillColor:`hsl(${colors[2]}, 100%, 50%)`} : {}}>Projects</div>
           <div onClick={() => popDown(300)} onMouseEnter={() => setHover(3)} onMouseOut={() => setHover(-1)} style={hover === 3 ? {WebkitTextFillColor:`hsl(${colors[3]}, 100%, 50%)`} : {}}>Skills</div>
           <div onClick={() => popDown(400)} onMouseEnter={() => setHover(4)} onMouseOut={() => setHover(-1)} style={hover === 4 ? {WebkitTextFillColor:`hsl(${colors[4]}, 100%, 50%)`} : {}}>Contact</div>
           <button onClick={() => popStack(250)}>pop!</button>
-          <button onClick={() => pushStack(1)}>push!</button>
+          <button onClick={() => pushStack(100)}>push!</button>
         </div>
       </div>
     </div>

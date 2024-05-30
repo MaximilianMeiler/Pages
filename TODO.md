@@ -29,4 +29,30 @@ ADD HOVER ANIMATIONS, BORDERS TO EVERYTHING
   - Portfolio
 - Contact page (use grid?)
 
-flash to hidden on push?
+### redoing animations, how should things work?
+
+#### pop
+- display the overlay, as the current page being popped
+- adjust background screens -1
+- slide down overlay
+
+#### push
+- make the overlay mimic the new page
+- slide up overlay
+- adjust background screens +1
+- hide overlay
+
+
+### redoing animations w/o overlay
+
+#### pop
+- transfer down left
+- decrement left index
+- show left instantly
+- decrement back index
+
+#### push
+- increment back index
+- hide left instantly
+- increment left index
+- transfer up left

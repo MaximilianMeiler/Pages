@@ -31,13 +31,19 @@ function App() {
 
   const [hover, setHover] = useState(-1);
 
-  const colors = {
-    0: 100,
-    100: 190,
-    200: 150,
-    300: 45,
-    400: 20
-  };
+  function getColor(page) {
+    if (page < 100) {
+      return 100;
+    } else if (page < 200) {
+      return 190;
+    } else if (page < 300) {
+      return 150;
+    } else if (page < 400) {
+      return 45;
+    } else {
+      return 20;
+    }
+  }
 
   async function popStack(delay) {
     const curr = document.querySelector(".left");
@@ -66,6 +72,8 @@ function App() {
 
   //popDown logic
   useEffect(() => {
+    console.log("stack update:", stack)
+
     if (target !== -1 && stack.length-1 > target) {
       popStack(250 / (stack.length - target - 1));
     } else {
@@ -97,36 +105,36 @@ function App() {
       <div className='trueBackground'></div>
       <div className='background'>
 
-        <div className='left' style={{backgroundColor:`hsl(${colors[stack[index]]}, 100%, 85%)`}}>
-          <div className='nestedTag' style={{left:`${100 + 140*(index)}px`, backgroundColor:`hsl(${colors[stack[index]]}, 100%, 85%)`}}></div>
-          <Router colors={colors} stack={stack} index={index} pushStack={pushStack}/>
+        <div className='left' style={{backgroundColor:`hsl(${getColor(stack[index])}, 100%, 85%)`}}>
+          <div className='nestedTag' style={{left:`${100 + 140*(index)}px`, backgroundColor:`hsl(${getColor(stack[index])}, 100%, 85%)`}}></div>
+          <Router getColor={getColor} stack={stack} index={index} pushStack={pushStack}/>
         </div>
 
         {stack.map((v, i) => { //non-last tags
           return (
             i !== stack.length - 1 ? 
               <div className='tag' 
-                style={{left:`${102 + 140*i}px`, backgroundColor:`hsl(${colors[stack[i]]}, 100%, 85%)`}}
+                style={{left:`${102 + 140*i}px`, backgroundColor:`hsl(${getColor(stack[i])}, 100%, 85%)`}}
                 onClick={() => setTarget(i)}
               ></div>
             : <></>
         )})}
 
         {index > 0 ? 
-        <div className='leftBehind' style={{backgroundColor:`hsl(${colors[stack[backIndex]]}, 100%, 85%)`}}>
+        <div className='leftBehind' style={{backgroundColor:`hsl(${getColor(stack[backIndex])}, 100%, 85%)`}}>
 
-          <Router colors={colors} stack={stack} index={backIndex} pushStack={pushStack}/>
+          <Router getColor={getColor} stack={stack} index={backIndex} pushStack={pushStack}/>
         </div>
         : <></>}
 
         
 
-        <div className='top' style={{backgroundColor:`hsl(${colors[stack[index]]}, 100%, 80%)`}}></div>
-        <div className='right' style={{backgroundColor:`hsl(${colors[stack[index]]}, 100%, 75%)`}}>
-          <div onClick={() => popDown(100)} onMouseEnter={() => setHover(1)} onMouseOut={() => setHover(-1)} style={hover === 1 ? {WebkitTextFillColor:`hsl(${colors[1]}, 100%, 50%)`} : {}}>Activity</div>
-          <div onClick={() => popDown(200)} onMouseEnter={() => setHover(2)} onMouseOut={() => setHover(-1)} style={hover === 2 ? {WebkitTextFillColor:`hsl(${colors[2]}, 100%, 50%)`} : {}}>Projects</div>
-          <div onClick={() => popDown(300)} onMouseEnter={() => setHover(3)} onMouseOut={() => setHover(-1)} style={hover === 3 ? {WebkitTextFillColor:`hsl(${colors[3]}, 100%, 50%)`} : {}}>Skills</div>
-          <div onClick={() => popDown(400)} onMouseEnter={() => setHover(4)} onMouseOut={() => setHover(-1)} style={hover === 4 ? {WebkitTextFillColor:`hsl(${colors[4]}, 100%, 50%)`} : {}}>Contact</div>
+        <div className='top' style={{backgroundColor:`hsl(${getColor(stack[index])}, 100%, 80%)`}}></div>
+        <div className='right' style={{backgroundColor:`hsl(${getColor(stack[index])}, 100%, 75%)`}}>
+          <div onClick={() => popDown(100)} onMouseEnter={() => setHover(1)} onMouseOut={() => setHover(-1)} style={hover === 1 ? {WebkitTextFillColor:`hsl(${getColor(100)}, 100%, 50%)`} : {}}>Activity</div>
+          <div onClick={() => popDown(200)} onMouseEnter={() => setHover(2)} onMouseOut={() => setHover(-1)} style={hover === 2 ? {WebkitTextFillColor:`hsl(${getColor(200)}, 100%, 50%)`} : {}}>Projects</div>
+          <div onClick={() => popDown(300)} onMouseEnter={() => setHover(3)} onMouseOut={() => setHover(-1)} style={hover === 3 ? {WebkitTextFillColor:`hsl(${getColor(300)}, 100%, 50%)`} : {}}>Skills</div>
+          <div onClick={() => popDown(400)} onMouseEnter={() => setHover(4)} onMouseOut={() => setHover(-1)} style={hover === 4 ? {WebkitTextFillColor:`hsl(${getColor(400)}, 100%, 50%)`} : {}}>Contact</div>
           <button onClick={() => popStack(250)}>pop!</button>
           <button onClick={() => pushStack(100)}>push!</button>
         </div>

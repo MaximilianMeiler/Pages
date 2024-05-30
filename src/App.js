@@ -90,14 +90,17 @@ function App() {
     await setStack(stack.concat([page]))
 
     setBackIndex(backIndex + 1);
-    curr.style.setProperty("transition", `0s ease-in-out`);
-    curr.classList.add("hidden");
-    setIndex(index + 1);
-    
     setTimeout(() => {
-      curr.style.setProperty("transition", `.25s ease-in-out`);
-      curr.classList.remove("hidden");
-    }, 0)
+      curr.style.setProperty("transition", `0s ease-in-out`);
+      curr.classList.add("hidden");
+      setIndex(index + 1);
+      
+      setTimeout(() => {
+        curr.style.setProperty("transition", `.25s ease-in-out`);
+        curr.classList.remove("hidden");
+      }, 0) //idk
+    }, 100) //wait for backIndex to update in order not to flash colors
+
   }
 
   return (
@@ -120,12 +123,10 @@ function App() {
             : <></>
         )})}
 
-        {index > 0 ? 
         <div className='leftBehind' style={{backgroundColor:`hsl(${getColor(stack[backIndex])}, 100%, 85%)`}}>
 
           <Router getColor={getColor} stack={stack} index={backIndex} pushStack={pushStack}/>
         </div>
-        : <></>}
 
         
 

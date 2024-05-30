@@ -32,20 +32,6 @@ ADD HOVER ANIMATIONS, BORDERS TO EVERYTHING
 ### redoing animations, how should things work?
 
 #### pop
-- display the overlay, as the current page being popped
-- adjust background screens -1
-- slide down overlay
-
-#### push
-- make the overlay mimic the new page
-- slide up overlay
-- adjust background screens +1
-- hide overlay
-
-
-### redoing animations w/o overlay
-
-#### pop
 - transfer down left
 - decrement left index
 - show left instantly
